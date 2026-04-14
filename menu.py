@@ -1,9 +1,6 @@
 import sqlite3
-
 conn = sqlite3.connect("BANCO DE DADOS")
 cursor = conn.cursor()
-
-
 cursor.execute("""
     CREATE TABLE IF NOT EXISTS alunos (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -11,7 +8,6 @@ cursor.execute("""
         nota INTEGER
     )"""
 )
-
 print(f"\n\033[2m--==|[ NOVO ALUNO ]|==--\033[0m\n")
 novo_aluno = str(input(f"\033[1mNome do novo aluno: \033[0m"))
 while True:
@@ -20,22 +16,18 @@ while True:
         break
     except ValueError:
         print(f"\n\033[2;32M !DIGITE UM NÚMERO VÁLIDO! \033[32m\n")
-
-cursor.execute("INSERT INTO alunos (nome, nota) VALUES (?, ?)", (novo_aluno, nota_novo_aluno))
-
+cursor.execute("INSERT INTO alunos (nome, nota) VALUES (?, ?)", (novo_aluno, nota_novo_aluno)
 conn.commit()
-
-print(f"--==|[{novo_aluno} com nota [{nota_novo_aluno}] foi \033[32madicionado\033[0m no BANDO DE DADOS]|==--\n")
-
+print(f"--==| \033[32m{novo_aluno}\033[0m com nota [{nota_novo_aluno}] foi \033[32madicionado\033[0m no BANDO DE DADOS |==--\n")
 cursor.execute("SELECT * FROM alunos")
 alunos = cursor.fetchall()
-
-
-print("≣"*30)
-
-
+id = "[ID]"
+nam = "[NOME]"
+nota = "[NOTA]"
+print("≣"*31)
+print(f"\033[1m{id:<3}| {nam:<10} | {nota:<10} |\033[0m")
 for aluno in alunos:
-        print(aluno)
-
-print("≣"*30)
+    id_aluno, novo_aluno, nota_novo_aluno = aluno
+    print(f"{id_aluno:<3} | {novo_aluno:<10} | { nota_novo_aluno:<10} |")
+print("≣"*31)
 conn.close()

@@ -1,4 +1,3 @@
-
 import sqlite3
 
 conn = sqlite3.connect("BANCO DE DADOS")
@@ -32,10 +31,11 @@ cursor.execute("SELECT * FROM alunos")
 alunos = cursor.fetchall()
 
 
-print("-"*30)
+print("≣"*30)
 
 
 for aluno in alunos:
         print(aluno)
 
+print("≣"*30)
 conn.close()

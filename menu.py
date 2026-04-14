@@ -1,5 +1,5 @@
 import sqlite3
-conn = sqlite3.connect("BANCO DE DADOS")
+conn = sqlite3.connect("BANCO_DE_DADOS.db")
 cursor = conn.cursor()
 cursor.execute("""
     CREATE TABLE IF NOT EXISTS alunos (
@@ -16,7 +16,7 @@ while True:
         break
     except ValueError:
         print(f"\n\033[2;32M !DIGITE UM NÚMERO VÁLIDO! \033[32m\n")
-cursor.execute("INSERT INTO alunos (nome, nota) VALUES (?, ?)", (novo_aluno, nota_novo_aluno)
+cursor.execute("INSERT INTO alunos (nome, nota) VALUES (?, ?)", (novo_aluno, nota_novo_aluno))
 conn.commit()
 print(f"--==| \033[32m{novo_aluno}\033[0m com nota [{nota_novo_aluno}] foi \033[32madicionado\033[0m no BANDO DE DADOS |==--\n")
 cursor.execute("SELECT * FROM alunos")

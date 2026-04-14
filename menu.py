@@ -6,8 +6,7 @@ cursor.execute("""
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         nome TEXT NOT NULL,
         nota INTEGER
-    )"""
-)
+    )""")
 print(f"\n\033[2m--==|[ NOVO ALUNO ]|==--\033[0m\n")
 novo_aluno = str(input(f"\033[1mNome do novo aluno: \033[0m"))
 while True:
@@ -24,10 +23,10 @@ alunos = cursor.fetchall()
 id = "[ID]"
 nam = "[NOME]"
 nota = "[NOTA]"
-print("≣"*31)
-print(f"\033[1m{id:<3}| {nam:<10} | {nota:<10} |\033[0m")
+print("≣"*42)
+print(f"\033[1m{id:<4}| {nam:<20}  | {nota:<10} |\033[0m")
 for aluno in alunos:
     id_aluno, novo_aluno, nota_novo_aluno = aluno
-    print(f"{id_aluno:<3} | {novo_aluno:<10} | { nota_novo_aluno:<10} |")
-print("≣"*31)
+    print(f"{id_aluno:<4} | {novo_aluno:<20} | { nota_novo_aluno:<10} |")
+print("≣"*42)
 conn.close()

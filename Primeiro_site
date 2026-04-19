@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+      <meta charset="UTF-8">
+    <title>TRABALHO.BD</title>
+    <body>
+        <h1> TRABALHO: BANDO DE GADOS</h1>
+        <header>Algo muito interessante</header>
+        <strong>Por: FELIPE REIZ NAVAS - N° 5 - 2°DSN</strong>
+        <p>Digamos que esse seja o primeiro site, tecnicamente, esse é o meu <em>primeiro site.</em><br>
+        A criação de sites é algo intrigante, vai ser muito útil masterizar essas habilidades.</p>
+        <h2> Referências: </h2>
+        <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&list=RDdQw4w9WgXcQ&start_radio=1" target="_blank">https://www.youtube.com/watch?v=dQw4w9WgXcQ&list=RDdQw4w9WgXcQ&start_radio=1</a>
+        <p><br>Isso <b>NÃO</b> é um vídeo do Rick Astley</p>
+</head>
+</html>

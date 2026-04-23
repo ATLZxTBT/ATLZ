@@ -1,0 +1,23 @@
+import sqlite3
+import pandas as pd
+
+conn =sqlite3.connect("TESTE BD.db")
+cursor = conn.cursor()
+cursor.execute("""
+    CREATE TABLE IF NOT EXISTS empresa(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    mes TEXT NOT NULL,
+    sales INTEGER
+)""")
+print(f"\n\t\033[1;32m|| RELATÓRIO ANUAL DA EMPRESA ||\033[0m\t\n")
+
+
+ano = ["Jan","Fev","Mar","Abr","Mai","Jun","Jul","Ago","Set","Out","Nov","Dez"]
+dados_ano = [(mes,) for mes in ano]
+cursor.executemany("INSERT INTO empresa (mes) VALUES (?)", dados_ano)
+conn.commit()
+cursor.execute("SELECT * FROM empresa")
+empresa = cursor.fetchall()
+df = pd.DataFrame(empresa)
+df = df.rename(columns={0: "ID", 1: "MÊS", 2: "ENTREGAS"})
+print(df.head(12))

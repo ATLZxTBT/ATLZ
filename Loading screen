@@ -1,0 +1,5 @@
+loading = 0
+for i in range(101):
+    print(f"\r\t\033[1;33mCarregando {loading}%\033[0m\t", end=" ")
+    loading += 1
+    time.sleep(0.05)

@@ -10,3 +10,4 @@ for i in range(10):
     print(f"[{num} x {i+1} = {num * (i+1)}]") 
     time.sleep(0.05)
 ## kabvvfhfvjksf
+#1234567890-

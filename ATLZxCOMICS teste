@@ -12,34 +12,19 @@ cursor.execute("""
 def info():
     print(f"\n\033[3;35m---=== |[ ATLZx© COMICS ]|===---\033[0m\n")
     print(f"\033[3mATLZx© COMICS\033[0m é a responsável pela saga de quadrinhos de sucesso \033[1;34mTALES BEYOND TIME,\033[0m criada por \033[3mATLZx.\033[0m\n")
-    produtos =["TBT-ZERO", "TBT-ONE", "TBT-2", "TBT-3", "TBT-4", "TBT-V"]
-    prod_list = [(items) for items in produtos]
-    preco = ["26,90R$","26,90R$","26,90R$","26,90R$","26,90R$","26,90R$"]
-    prec_list = [(items_pr) for items_pr in preco]
-    conn.execute("INSERT INTO empresa (voo, price) VALUES (?, ?)", (prod_list, prec_list))
-    conn.commit()
-    conn.execute("SELECT * FROM empresa")
-    empresa = conn.fecthall()
-    df.pd.DataFrame(empresa)
-    print(df)
-
-#rel. anual
-#rel. mensal
-#staff
 def cadastro():
     while True:
         print(f"\033[1;33m≣\033[0m" * 40)
         print("\t\033[1;33m|[ BANCO DE DADOS DA EMPRESA ]|\033[0m")
         print(f"\033[1;33m≣\033[0m" * 40)
         print(f"\033[0;32m[1] INFO. DA EMPRESA\n[2] RELATÓRIO ANUAL\n[3] RELATÓRIO MENSAL\n[4] DADOS DOS FUNCIONÁRIOS\n[5] SAIR\033[0m")
-        opcao = (input(f"\033[32m: \033[0m"))
-        if opcao in ("1", "2", "3", "4", "5"):
-            if opcao == "5":
-                print(f"\033[1;31m[Sessão encerrada]\033[0m")
-                break
-            else:
-                return opcao
+        opcao = int(input(f"\033[32m: \033[0m"))
+        if opcao in (1, 2, 3, 4, 5):
+            return opcao
         else:
-            print(f"\033[1;31mOPÇÃO INVÁLIDA\033[0m")
+            print(f"\033[1;31m!ERRO! OPÇÃO INVÁLIDA\033[0m")
             continue
-cadastro()
+menu = cadastro()
+
+if menu == 1:
+    info()

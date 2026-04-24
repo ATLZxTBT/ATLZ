@@ -1,30 +1,106 @@
 import sqlite3
 import pandas as pd
+import matplotlib.pyplot as plt
 
 conn =sqlite3.connect("TESTE BD.db")
 cursor = conn.cursor()
 cursor.execute("""
-    CREATE TABLE IF NOT EXISTS empresa(
+    CREATE TABLE IF NOT EXISTS produtos(
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    voo TEXT NOT NULL,
+    vol TEXT NOT NULL,
     price INTEGER
 )""")
+email = "skywalkerfelipe0@gmail.com"
+pswrd = "bob"
 def info():
-    print(f"\n\033[3;35m---=== |[ ATLZx© COMICS ]|===---\033[0m\n")
-    print(f"\033[3mATLZx© COMICS\033[0m é a responsável pela saga de quadrinhos de sucesso \033[1;34mTALES BEYOND TIME,\033[0m criada por \033[3mATLZx.\033[0m\n")
+    print("\n\033[3;35m---=== |[ ATLZx© COMICS ]|===---\033[0m\n")
+    print("\033[3mATLZx© COMICS\033[0m é a responsável pela saga de quadrinhos de sucesso \033[1;34mTALES BEYOND TIME,\033[0m criada por \033[3mATLZx.\033[0m\n")
+
+def data():
+    while True:
+        print("\033[1;33m≣\033[0m" * 40)
+        print("\033[1;33mDADOS DAS VENDAS\033[0m")
+        print("\033[1;33m≣\033[0m" * 40)
+        print("\033[1;33m[1] REL. DE VENDAS ANUAL\n[2] REL. DE VENDAS MENSAL\n[3] GASTOS\n[4] LUCROS\n[5] CANCELAR AÇÃO\033[0m\n")
+        opcao_data = int(input(f"\033[33m: \033[0m"))
+        if opcao_data in (1,2,3,4,5):
+            if opcao_data == 5:
+                print("\033[1;31m[Encerrando ação]\033[0m")
+                break
+            else:
+                return opcao_data
+        else:
+            print("\033[1;31m!ERRO! OPÇÃO INVÁLIDA\033[0m")
+            continue
+
+def produtos():
+    while True:
+        print("\033[1;35m≣\033[0m" * 40)
+        print("\033[1;35mPRODUTOS\033[0m")
+        print("\033[1;35m[1] MOSTRAR PRODUTOS\n[2] REMOVER PRODUTO\n[3] ADICIONAR PRODUTO\n[4] CANCELAR AÇÃO\033[0m\n")
+        print("\033[1;35m≣\033[0m" * 40)
+        opcao_produtos = int(input(f"\033[35m: \033[0m"))
+        if opcao_produtos == 1 or 4:
+            if opcao_produtos == 2 or 3:
+                print("\033[1;32mCHAVE DE SEGURANÇA NECESSÁRIA!\033[0m")
+                email_guess = str(input("\033[1mEMAIL: \033[0m"))
+                pswrd_guess = str(input("\033[1mSENHA: \033[0m"))
+                return opcao_produtos
+            else:
+                continue
+            if opcao_produtos == 4:
+                break
+            else:
+                return opcao_produtos
+        else:
+            print("\033[1;31m!ERRO! OPÇÃO INVÁLIDA\033[0m")
+            continue
+def adicionar_produto():
+    while True:
+        
+
+def funcionarios():
+    while True:
+        print("\033[1;32mCHAVE DE SEGURANÇA NECESSÁRIA!\033[0m")
+        email_guess = str(input("\033[1mEMAIL: \033[0m"))
+        pswrd_guess = str(input("\033[1mSENHA: \033[0m"))
+        if email_guess == email and pswrd_guess == pswrd:
+            print("\033[1;36m≣\033[0m" * 40)
+            print("\033[1;36mFUNCIONÁRIOS\033[0m")
+            print("\033[1;36m[1] FUNCIONÁRIOS\n[2] REMOVER FUNCIONÁRIO\n[3] ADICIONAR FUNCIONÁRIO\n[4] CANCELAR AÇÃO\033[0m\n")
+            print("\033[1;36m≣\033[0m" * 40)
+            return
+        else:
+            continue
+
 def cadastro():
     while True:
-        print(f"\033[1;33m≣\033[0m" * 40)
+        print("\033[1;33m≣\033[0m" * 40)
         print("\t\033[1;33m|[ BANCO DE DADOS DA EMPRESA ]|\033[0m")
-        print(f"\033[1;33m≣\033[0m" * 40)
-        print(f"\033[0;32m[1] INFO. DA EMPRESA\n[2] RELATÓRIO ANUAL\n[3] RELATÓRIO MENSAL\n[4] DADOS DOS FUNCIONÁRIOS\n[5] SAIR\033[0m")
+        print("\033[1;33m≣\033[0m" * 40)
+        print("\033[0;32m[1] INFO. DA EMPRESA\n[2] DADOS DAS VENDAS\n[3] PRODUTOS\n[4] DADOS DOS FUNCIONÁRIOS\n[5] SAIR\033[0m")
         opcao = int(input(f"\033[32m: \033[0m"))
         if opcao in (1, 2, 3, 4, 5):
-            return opcao
+            if opcao == 5:
+                print("\033[1;31m[Sessão encerrada]\033[0m")
+                break
+            else:
+                return opcao
         else:
-            print(f"\033[1;31m!ERRO! OPÇÃO INVÁLIDA\033[0m")
+            print("\033[1;31m!ERRO! OPÇÃO INVÁLIDA\033[0m")
             continue
-menu = cadastro()
 
-if menu == 1:
-    info()
+while True:
+    menu = cadastro()
+    if menu == 1:
+        info()
+    elif menu == 2:
+        data()
+    elif menu == 3:
+        produtos()
+    elif menu == 4:
+        funcionarios()
+    elif menu == 5:
+        break
+    else:
+        break
